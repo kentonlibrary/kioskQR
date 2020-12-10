@@ -1,2 +1,2 @@
-# FxQRL
-FxQRL is a Firefox add-on that turns your URLs into QR code images without network connection.
+# kioskQR
+Kiosk QR is a firefox extension that adds a banner to the top of webpages instructing the user to scan a QR code to bring the page over to their phone.
