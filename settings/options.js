@@ -1,17 +1,18 @@
 "use strict";
 
-const [ DEFAULT_CELL_SIZE ] = [ 4 ];
+const [ DEFAULT_BANNER_TEXT ] = [ "Scan this QR Code to open this page on your phone!" ];
 
 function saveOptions(e) {
   e.preventDefault();
   browser.storage.local.set({
-    cellSize: document.querySelector("#cellSize").value
+    bannerText: document.querySelector("#bannerText").value
   });
+  alert(document.querySelector("#bannerText").value);
 }
 
 function restoreOptions() {
-  browser.storage.local.get("cellSize").then(result => {
-    document.querySelector("#cellSize").value = result.cellSize || DEFAULT_CELL_SIZE;
+  browser.storage.local.get("bannerText").then(result => {
+    document.querySelector("#bannerText").value = result.cellSize || DEFAULT_BANNER_TEXT;
   }, error => {
     console.log(error);
   });
