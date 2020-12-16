@@ -2130,15 +2130,29 @@ function generateQR(text, cellSize=1, margin=2) {
 
 
 
+function onError(error) {
+  console.log(`Error: ${error}`);
+}
 
 
 var QRHeader = document.createElement('div');
 QRHeader.style.background = "white";
-QRHeader.style.border = "solid green";
+QRHeader.style.border = "solid blue";
 QRHeader.innerHTML = generateQR(window.location.href, 3);
 QRHeader.style.display = "flex";
 var QRText = document.createElement('div')
-QRText.innerHTML = "Scan this QR Code to open this page on your phone.";
+
+function onGot(item) {
+  let bannerText = "Scan this code to open this page.";
+  if (item.bannerText) {
+    bannerText = item.bannerText;
+  }
+  QRText.innerHTML = bannerText;
+}
+
+let getting = browser.storage.sync.get("bannerText");
+getting.then(onGot, onError);
+
 QRText.style.color = "blue";
 QRText.style.fontSize = "xx-large";
 QRText.style.padding = "30px"

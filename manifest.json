@@ -3,8 +3,7 @@
   "name": "kioskQR",
   "version": "1.0",
   "description": "Place a QR Code banner at the top of all webpages that directs to the current page.",
-  "homepage_url": "https://github.com/kentonlibrary/kioskQR",
-  "icons": {
+  "homepage_url": "https://github.com/kentonlibrary/kioskQR","icons": {
     "16": "icons/kioskqr-16.png",
     "32": "icons/kioskqr-32.png",
     "64": "icons/kioskqr-64.png"
@@ -13,17 +12,6 @@
     "activeTab",
     "storage"
   ],
-
-  "browser_action": {
-    "browser_style": true,
-    "default_icon": {
-      "16": "icons/kioskqr-16.png",
-      "32": "icons/kioskqr-32.png",
-      "64": "icons/kioskqr-64.png"
-    },
-    "default_title": "kioskQR",
-    "default_popup": "popup/kioskqr.html"
-  },
 
   "options_ui": {
     "page": "settings/options.html"
@@ -34,6 +22,12 @@
       "matches": ["*://catalog.kentonlibrary.org/*"],
       "js": ["kioskqr.js"]
     }
-  ]
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "kioskqr@example.com"
+    }
+  }
 
 }
